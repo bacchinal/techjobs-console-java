@@ -129,15 +129,16 @@ public class JobData {
 
     public static ArrayList<HashMap<String, String>>findByValue(String searchTerm){
 
+        String lilSearch = searchTerm.toLowerCase();
         loadData();
         ArrayList<HashMap<String, String>>jobs = new ArrayList<>();
-        // switching to lowercase isn't working yet. 
+        // switching to lowercase isn't working yet.
         for (HashMap<String, String> job : allJobs) {
             Boolean containsTerm = false;
-            for (Map.Entry<String, String> row : job.entrySet()) {
-                String regularCase = row.getValue();
+            for (Map.Entry<String, String> work : job.entrySet()) {
+                String regularCase = work.getValue();
                 String littleOnes = regularCase.toLowerCase();
-                if (littleOnes.contains(searchTerm)) {
+                if (littleOnes.contains(lilSearch)) {
                     containsTerm = true;
                     break;
                 }
